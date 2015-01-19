@@ -15,7 +15,7 @@ angular.module('fed2App.controllers')
       $scope.$root.title = 'FED | Providers';
       $scope.loading = true;
       $scope.providersLimit = proivderQuantity;
-      $scope.predicate = 'in_fav';
+      $scope.predicate = '';
       $scope.reverse = false;
       $scope.comment = '';
       $scope.$on('$viewContentLoaded', function () {
