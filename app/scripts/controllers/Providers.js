@@ -28,6 +28,11 @@ angular.module('fed2App.controllers')
         obj.in_fav = true;
       };
 
+      $scope.sort = function (_predicate) {
+        $scope.predicate = _predicate;
+        $scope.reverse = !$scope.reverse;
+      };
+
       $scope.providers = [];
 
       providersServices.providers.forEach(function (provider) {

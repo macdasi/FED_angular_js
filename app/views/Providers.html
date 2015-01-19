@@ -4,7 +4,6 @@
   <div class="alert alert-info {{provider.loading == true ? '':'hidden'}}">Loading {{provider.name}}...</div>
 </div>
 
-
 <div ng-show="!provider.loading" ng-repeat="provider in providers">
   <h2>{{provider.name}}</h2>
   <pre>Sorting predicate = {{predicate}};reverse={{reverse}};</pre>
@@ -13,7 +12,7 @@
       <thead>
       <tr>
         <th ng-show="key != 'in_fav' && key != 'comment'" ng-repeat="(key, val) in provider.data[0]">
-          <a href="" ng-click="predicate = key; reverse=!reverse;">{{ ::key}}</a>
+          <a href="javascript:void(0)" ng-click="sort(key);">{{::key}}</a>
         </th>
         <th>action</th>
       </tr>
