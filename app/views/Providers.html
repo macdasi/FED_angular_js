@@ -29,7 +29,8 @@
              ng-click="showComment[$index] = true;">add</a>
           <div ng-show="showComment[$index] == true" >
             <input class="form-control" placeholder="comment..." type="text" ng-model="comment" >
-            <a class="btn btn-success" href="javascript:void(0)" ng-click="insert(info,comment);">save</a>
+            <a class="btn btn-success" href="javascript:void(0)"
+               ng-click="insert(info,comment);showComment[$index] = false;">save</a>
             <a class="btn btn-warning"
                ng-click="showComment[$index] = false;"
                href="javascript:void(0)"
