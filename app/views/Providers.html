@@ -1,7 +1,7 @@
 <h1 >Providers</h1>
 
 <div ng-repeat="provider in providers">
-  <div class="alert alert-info {{provider.loading == true ? '':'hidden'}}">Loading {{provider.name}}...</div>
+  <div class="alert alert-info {{provider.loading == true ? '':'hidden'}}"><i class="fa fa-spinner fa-spin"></i> Loading {{provider.name}}...</div>
 </div>
 
 <div ng-show="!provider.loading" ng-repeat="provider in providers">
@@ -21,7 +21,7 @@
       <tr ng-repeat="info in provider.data  | orderBy:predicate:reverse | limitTo:providersLimit ">
         <td ng-show="key != 'in_fav' && key != 'comment'" ng-repeat="(key, val) in ::info">{{ ::val}}</td>
         <td>
-          <span ng-show="info.in_fav" class="bg-success">exists</span>
+          <span ng-show="info.in_fav" ><i class="fa fa-check fa-lg"></i></span>
           <a ng-init="showComment[$index] = false"
              ng-hide="info.in_fav ||showComment[$index] == true "
              href="javascript:void(0)"
