@@ -18,7 +18,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="info in provider.data | object2Array | orderBy:predicate:reverse | limitTo:providersLimit ">
+      <tr ng-repeat="info in provider.data  | orderBy:predicate:reverse | limitTo:providersLimit ">
         <td ng-show="key != 'in_fav' && key != 'comment'" ng-repeat="(key, val) in ::info">{{ ::val}}</td>
         <td>
           <span ng-show="info.in_fav" class="bg-success">exists</span>
