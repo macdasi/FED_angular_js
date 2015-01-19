@@ -1,0 +1,46 @@
+<h1 >Providers</h1>
+
+<div ng-repeat="provider in providers">
+  <div class="alert alert-info {{provider.loading == true ? '':'hidden'}}">Loading {{provider.name}}...</div>
+</div>
+
+
+<div ng-show="!provider.loading" ng-repeat="provider in providers">
+  <h2>{{provider.name}}</h2>
+  <pre>Sorting predicate = {{predicate}};reverse={{reverse}};</pre>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+      <tr>
+        <th ng-show="key != 'in_fav' && key != 'comment'" ng-repeat="(key, val) in provider.data[0]">
+
+          <a href="" ng-click="predicate = key; reverse=!reverse;">{{ ::key}}</a>
+
+          </th>
+        <th>action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="info in provider.data | limitTo:providersLimit | orderBy:predicate:reverse">
+        <td ng-show="key != 'in_fav' && key != 'comment'" ng-repeat="(key, val) in ::info">{{ ::val}}</td>
+        <td>
+          <span ng-show="info.in_fav" class="bg-success">exists</span>
+          <a ng-init="showComment[$index] = false"
+             ng-hide="info.in_fav ||showComment[$index] == true "
+             href="javascript:void(0)"
+             ng-click="showComment[$index] = true;">add</a>
+          <div ng-show="showComment[$index] == true" >
+            <input class="form-control" placeholder="comment..." type="text" ng-model="comment" >
+            <a class="btn btn-success" href="javascript:void(0)" ng-click="insert(info,comment);">save</a>
+            <a class="btn btn-warning"
+               ng-click="showComment[$index] = false;"
+               href="javascript:void(0)"
+               ng-click="insert(info,comment);">cancel</a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

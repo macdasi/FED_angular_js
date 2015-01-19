@@ -1,0 +1,17 @@
+<h2>Favourites</h2>
+  <div class="table-responsive">
+    <table class="table">
+      <tr>
+        <th>data</th>
+        <th>action</th>
+      </tr>
+      <tr  ng-repeat="item in favourites">
+        <td>
+        <div ng-show="key != 'in_fav'" class="col-xs-6 col-sm-3" ng-repeat="(key, val) in item" >{{::key}}:{{::val}}</div>
+        </td>
+        <td  > <a href="javascript:void(0)" ng-click="remove(item)">remove</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
